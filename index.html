@@ -49,6 +49,9 @@
   --yd-shadow-sm: 3px 3px 0 var(--yd-ink);
   --yd-shadow: 5px 5px 0 var(--yd-ink);
   --yd-shadow-lg: 8px 8px 0 var(--yd-ink);
+  /* ink fills: yellow shadow with an ink outline, same footprint as the plain shadow */
+  --yd-shadow-ink-sm: 3px 3px 0 -2px var(--yd-yellow), 3px 3px 0 0 var(--yd-ink);
+  --yd-shadow-ink: 5px 5px 0 -2px var(--yd-yellow), 5px 5px 0 0 var(--yd-ink);
 
   /* Space (4px scale) */
   --yd-space-1: 4px;
@@ -122,7 +125,7 @@
 .yd-btn--ink {
   background: var(--yd-ink);
   color: var(--yd-yellow);
-  box-shadow: 3px 3px 0 var(--yd-yellow), 3px 3px 0 2px var(--yd-ink);
+  box-shadow: var(--yd-shadow-ink-sm);
 }
 .yd-btn--ink:hover {
   background: var(--yd-grey);
@@ -149,7 +152,7 @@
   transform: translate(5px, 5px);
 }
 .yd-btn--ink.yd-btn--lg {
-  box-shadow: 5px 5px 0 var(--yd-yellow), 5px 5px 0 2px var(--yd-ink);
+  box-shadow: var(--yd-shadow-ink);
 }
 
 /* ---------- Card ---------- */
@@ -322,7 +325,8 @@
 .yd-toggle__thumb {
   position: absolute;
   box-sizing: border-box;
-  top: 2px;
+  top: 50%;
+  transform: translateY(-50%);
   left: 2px;
   width: 22px;
   height: 22px;
@@ -451,7 +455,7 @@
 .yd-stat--ink {
   background: var(--yd-ink);
   color: var(--yd-yellow);
-  box-shadow: 3px 3px 0 var(--yd-yellow), 3px 3px 0 2px var(--yd-ink);
+  box-shadow: var(--yd-shadow-ink-sm);
 }
 
 /* ---------- Timer ---------- */
@@ -463,7 +467,7 @@
   border: var(--yd-border-lg) solid var(--yd-ink);
   background: var(--yd-ink);
   color: var(--yd-yellow);
-  box-shadow: 5px 5px 0 var(--yd-yellow), 5px 5px 0 2px var(--yd-ink);
+  box-shadow: var(--yd-shadow-ink);
   padding: var(--yd-space-4) var(--yd-space-8);
 }
 .yd-timer--rest {
@@ -1079,6 +1083,18 @@ a.biglink span { display:block; font-weight:400; text-transform:none; letter-spa
 a.biglink:hover { background:var(--yd-yellow); }
 a.biglink:active { transform:translate(5px,5px); box-shadow:0 0 0 var(--yd-ink); }
 a:focus-visible, button:focus-visible { outline:3px solid var(--yd-signal); outline-offset:2px; }
+/* masthead show-don't-tell tiles */
+.mh-tile { display:inline-flex; flex-direction:column; align-items:center; gap:8px; }
+.mh-tile__demo { position:relative; display:inline-block; width:84px; height:44px; border:3px solid var(--yd-ink); }
+.mh-tile__x, .mh-tile__ok { position:absolute; top:-12px; right:-12px; width:26px; height:26px; border-radius:50%; border:3px solid var(--yd-ink); display:flex; align-items:center; justify-content:center; font-weight:900; font-size:.8rem; }
+.mh-tile__x { background:var(--yd-signal); color:var(--yd-paper); }
+.mh-tile__ok { background:var(--yd-teal); color:var(--yd-paper); }
+.mh-tile__lbl { background:var(--yd-ink); color:var(--yd-yellow); font-weight:700; text-transform:uppercase; letter-spacing:.1em; font-size:.72rem; padding:3px 10px; }
+
+/* sin demos */
+.sin { display:inline-flex; align-items:center; justify-content:center; min-width:96px; padding:10px 18px; border:3px solid var(--yd-ink); font-weight:700; text-transform:uppercase; font-size:.85rem; letter-spacing:.04em; }
+.sin--mini { min-width:34px; width:34px; height:34px; padding:0; background:var(--yd-white); }
+
 /* masthead corner demo */
 .mh-corners { display:inline-flex; align-items:center; gap:10px; flex-wrap:wrap; }
 .mh-corners .yd-btn { cursor:default; box-shadow:2px 2px 0 var(--yd-ink); }
@@ -1130,16 +1146,14 @@ a.biglink img { display:block; width:100%; border:3px solid var(--yd-ink); margi
 
 <div class="masthead">
   <div class="inner">
-    <span class="plate">Brand system · v5 · Aug 2026</span>
+    <span class="plate">Brand system · v6 · Aug 2026</span>
     <h1>Yellow Dude<br>Neo-Brutal</h1>
     <p class="sub">One design system for every surface — websites, mobile training apps, video, and social. Flat loud color. Thick ink borders. Hard shadows. Corners square or fully round — nothing in between.</p>
     <div class="meta">
-      <span class="plate">No gradients</span><span class="plate">No blur</span>
-      <span class="mh-corners">
-        <button type="button" class="yd-btn yd-btn--sm yd-btn--secondary">Square</button>
-        <button type="button" class="yd-btn yd-btn--sm yd-btn--secondary yd-btn--pill">Full pill</button>
-        <span class="mh-corners__note">— the only two corners we use</span>
-      </span>
+      <span class="mh-tile"><span class="mh-tile__demo" style="background:linear-gradient(135deg,#ffc100,#de90ff)"><span class="mh-tile__x">✕</span></span><span class="mh-tile__lbl">No gradients</span></span>
+      <span class="mh-tile"><span class="mh-tile__demo" style="background:var(--yd-paper); border-color:var(--yd-ink); box-shadow:5px 5px 10px rgba(17,17,17,.55)"><span class="mh-tile__x">✕</span></span><span class="mh-tile__lbl">No blur</span></span>
+      <span class="mh-tile"><span class="mh-tile__demo" style="background:var(--yd-paper); box-shadow:3px 3px 0 var(--yd-ink)"><span class="mh-tile__ok">✓</span></span><span class="mh-tile__lbl">Square</span></span>
+      <span class="mh-tile"><span class="mh-tile__demo" style="background:var(--yd-paper); border-radius:999px; box-shadow:3px 3px 0 var(--yd-ink)"><span class="mh-tile__ok">✓</span></span><span class="mh-tile__lbl">Full pill</span></span>
     </div>
   </div>
 </div>
@@ -1290,12 +1304,23 @@ a.biglink img { display:block; width:100%; border:3px solid var(--yd-ink); margi
     <div class="tok"><div class="demo"><div class="box" style="box-shadow:5px 5px 0 var(--yd-ink)"></div></div><div class="lbl">Shadow MD</div><div class="val">5px 5px 0 · cards</div></div>
     <div class="tok"><div class="demo"><div class="box" style="box-shadow:8px 8px 0 var(--yd-ink)"></div></div><div class="lbl">Shadow LG</div><div class="val">8px 8px 0 · features</div></div>
   </div>
+  <h3 style="font-family:var(--yd-font-display); font-weight:800; text-transform:uppercase; font-size:1.4rem; margin:40px 0 16px">Show the sins — never do these</h3>
+  <div class="nogrid" style="max-width:none; margin-bottom:36px">
+    <div class="no"><div class="no__demo"><span class="sin" style="background:linear-gradient(135deg,var(--yd-yellow),var(--yd-purple))">Start</span><span class="no__x">✕</span></div><div class="no__cap">No gradients — every fill is flat.</div></div>
+    <div class="no"><div class="no__demo"><span class="sin" style="background:var(--yd-yellow); box-shadow:5px 5px 12px rgba(17,17,17,.6)">Start</span><span class="no__x">✕</span></div><div class="no__cap">No blurred shadows — shadows are hard offsets.</div></div>
+    <div class="no"><div class="no__demo"><span class="sin" style="background:var(--yd-yellow); box-shadow:0 0 14px 4px rgba(255,193,0,.9)">Start</span><span class="no__x">✕</span></div><div class="no__cap">No glows — focus and emphasis use ink outlines.</div></div>
+    <div class="no"><div class="no__demo"><span class="sin" style="background:var(--yd-yellow); opacity:.45">Start</span><span class="no__x">✕</span></div><div class="no__cap">No opacity fades — states change instantly or physically move.</div></div>
+    <div class="no"><div class="no__demo"><span class="sin" style="background:var(--yd-yellow); border-radius:10px">Start</span><span class="no__x">✕</span></div><div class="no__cap">No in-between corners — square or full pill, nothing else.</div></div>
+    <div class="no"><div class="no__demo" style="gap:6px"><span class="sin sin--mini"></span><span class="sin sin--mini"></span><span class="sin sin--mini"></span><span class="sin sin--mini"></span><span class="no__x">✕</span></div><div class="no__cap">Don't box everything — too many bordered boxes overwhelms. Borders are essential, but use them sparingly.</div></div>
+  </div>
   <ul class="rule-list" style="margin-top:28px">
     <li><strong>Radius:</strong> square (0) or full pill (999px). Never anything in between.</li>
     <li><strong>Spacing:</strong> 4px scale — 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64.</li>
     <li><strong>Shadows never blur</strong> and are always down-right — ink on light fills, <strong>brand yellow on ink fills</strong> (so border and shadow never blend black-on-black).</li>
     <li><strong>Shadows belong to raised, clickable surfaces only</strong> — buttons, cards, timers, charts. Form fields (inputs, selects, textareas, sliders, checks, radios, toggles) stay flat; focus is an ink outline.</li>
     <li><strong>Motion:</strong> press = translate by the shadow offset, shadow collapses to 0. 120ms ease-out. That's the only transition the brand owns.</li>
+    <li><strong>Borders are essential — and rationed.</strong> Interactive and key elements get ink borders; passive layout areas stay open. If everything has a border, nothing does.</li>
+    <li><strong>Density:</strong> few boxes per view. Too many bordered boxes and dropdowns overwhelms and distracts — one hero element per composition, air around it.</li>
   </ul>
 </section>
 
@@ -1605,13 +1630,30 @@ body.annotating, body.annotating * { cursor:crosshair !important; }
   font-weight:700; text-transform:uppercase; letter-spacing:.05em; font-size:.85rem; padding:10px 18px; display:none;
 }
 .an-hint { color:var(--yd-paper); font-size:.75rem; max-width:200px; }
-@media print { .an-bar, .an-pin, .an-pop, .an-toast { display:none !important; } }
+@media print { .an-bar, .an-pin, .an-pop, .an-toast, .cu-panel { display:none !important; } }
+.cu-panel {
+  position:fixed; left:20px; bottom:20px; z-index:9999; width:min(320px,88vw);
+  background:var(--yd-paper); border:3px solid var(--yd-ink); box-shadow:5px 5px 0 var(--yd-ink);
+  padding:16px; display:none; max-height:70vh; overflow-y:auto;
+}
+.cu-panel.open { display:block; }
+.cu-panel h4 { margin:0 0 12px; font-family:var(--yd-font-display); font-weight:800; text-transform:uppercase; font-size:1.1rem; }
+.cu-group { margin-bottom:14px; }
+.cu-group > span { display:block; font-weight:700; text-transform:uppercase; font-size:.72rem; letter-spacing:.06em; margin-bottom:6px; }
+.cu-row { display:flex; flex-wrap:wrap; gap:6px; }
+.cu-opt { font-family:var(--yd-font-body); font-weight:700; text-transform:uppercase; font-size:.68rem; letter-spacing:.03em; border:2px solid var(--yd-ink); background:var(--yd-white); padding:5px 10px; cursor:pointer; }
+.cu-opt[aria-pressed='true'] { background:var(--yd-yellow); }
+.cu-sw { width:28px; height:28px; border:2px solid var(--yd-ink); cursor:pointer; padding:0; }
+.cu-sw[aria-pressed='true'] { outline:3px solid var(--yd-signal); outline-offset:2px; }
+.cu-actions { display:flex; gap:8px; margin-top:6px; }
+select.cu-scope { font-family:var(--yd-font-body); font-weight:600; border:2px solid var(--yd-ink); background:var(--yd-white); padding:6px 8px; width:100%; }
 </style>
 
 <div class="an-bar" role="toolbar" aria-label="Annotation tools">
   <button id="anToggle" class="primary">✏ Annotate</button>
   <span class="an-count" id="anCount">0</span>
   <button id="anCopy">Copy notes</button>
+  <button id="cuToggle">⚙ Customize</button>
   <button id="anClear">Clear</button>
 </div>
 <div class="an-toast" id="anToast"></div>
@@ -1808,6 +1850,7 @@ body.annotating, body.annotating * { cursor:crosshair !important; }
     });
     bClose.addEventListener('click', function () { box.remove(); });
   }
+  window.ydExportPanel = openExport;
 
   (function () {
     var btn = document.getElementById('anClear');
@@ -1832,5 +1875,123 @@ body.annotating, body.annotating * { cursor:crosshair !important; }
   var rTimer;
   window.addEventListener('resize', function () { clearTimeout(rTimer); rTimer = setTimeout(renderAll, 200); });
   renderAll();
+})();
+
+(function () {
+  var KEY = 'yd-guide-custom-v1';
+  var SECTIONS = [
+    ['all', 'Whole guide'], ['color', '01 Color'], ['pairs', '02 Pairings + playground'],
+    ['type', '03 Typography'], ['tokens', '04 Tokens'], ['components', '05 Components'],
+    ['media', '06 Per-medium'], ['refs', '07 References'],
+  ];
+  var STROKE = { thin: ['1px','2px','3px'], regular: ['2px','3px','4px'], thick: ['3px','4px','6px'] };
+  var ACCENTS = ['#ffc100', '#de90ff', '#e3c9f8', '#108474', '#ff4d2e', '#8fbbff'];
+  var defaults = { stroke: 'regular', borders: 'on', shadows: 'on', accent: '#ffc100' };
+  var store = {};
+  try { store = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { store = {}; }
+  var scope = 'all';
+
+  function elFor(sc) { return sc === 'all' ? document.documentElement : document.getElementById(sc); }
+  function settingsFor(sc) { return Object.assign({}, defaults, store[sc] || {}); }
+
+  function applyOne(sc) {
+    var el = elFor(sc); if (!el) return;
+    var st = settingsFor(sc);
+    var sw = STROKE[st.stroke] || STROKE.regular;
+    var off = st.borders === 'off';
+    el.style.setProperty('--yd-border-sm', off ? '0px' : sw[0]);
+    el.style.setProperty('--yd-border', off ? '0px' : sw[1]);
+    el.style.setProperty('--yd-border-lg', off ? '0px' : sw[2]);
+    if (st.shadows === 'off') {
+      ['--yd-shadow-sm','--yd-shadow','--yd-shadow-lg','--yd-shadow-ink-sm','--yd-shadow-ink'].forEach(function (v) { el.style.setProperty(v, 'none'); });
+    } else {
+      ['--yd-shadow-sm','--yd-shadow','--yd-shadow-lg','--yd-shadow-ink-sm','--yd-shadow-ink'].forEach(function (v) { el.style.removeProperty(v); });
+    }
+    if (st.accent !== defaults.accent) {
+      el.style.setProperty('--yd-yellow', st.accent);
+      el.style.setProperty('--yd-yellow-bright', st.accent);
+    } else {
+      el.style.removeProperty('--yd-yellow');
+      el.style.removeProperty('--yd-yellow-bright');
+    }
+  }
+  function applyAll() { applyOne('all'); SECTIONS.slice(1).forEach(function (s2) { applyOne(s2[0]); }); }
+  function save() { localStorage.setItem(KEY, JSON.stringify(store)); }
+
+  var panel = document.createElement('div');
+  panel.className = 'cu-panel';
+  panel.innerHTML = '<h4>Customize</h4>'
+    + '<div class="cu-group"><span>Scope</span><select class="cu-scope" id="cuScope"></select></div>'
+    + '<div class="cu-group"><span>Stroke width</span><div class="cu-row" id="cuStroke"></div></div>'
+    + '<div class="cu-group"><span>Borders</span><div class="cu-row" id="cuBorders"></div></div>'
+    + '<div class="cu-group"><span>Shadows</span><div class="cu-row" id="cuShadows"></div></div>'
+    + '<div class="cu-group"><span>Accent color</span><div class="cu-row" id="cuAccent"></div></div>'
+    + '<div class="cu-actions"><button type="button" class="cu-opt" id="cuCopy">Copy settings</button><button type="button" class="cu-opt" id="cuReset">Reset all</button></div>';
+  document.body.appendChild(panel);
+
+  var scopeSel = panel.querySelector('#cuScope');
+  SECTIONS.forEach(function (s2) {
+    var o = document.createElement('option'); o.value = s2[0]; o.textContent = s2[1]; scopeSel.appendChild(o);
+  });
+  scopeSel.addEventListener('change', function () { scope = scopeSel.value; syncUI(); });
+
+  function optRow(hostId, key, opts) {
+    var host = panel.querySelector('#' + hostId);
+    opts.forEach(function (v) {
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'cu-opt';
+      b.textContent = v; b.dataset.key = key; b.dataset.v = v;
+      b.addEventListener('click', function () {
+        store[scope] = store[scope] || {}; store[scope][key] = v; save(); applyAll(); syncUI();
+      });
+      host.appendChild(b);
+    });
+  }
+  optRow('cuStroke', 'stroke', ['thin', 'regular', 'thick']);
+  optRow('cuBorders', 'borders', ['on', 'off']);
+  optRow('cuShadows', 'shadows', ['on', 'off']);
+  var ah = panel.querySelector('#cuAccent');
+  ACCENTS.forEach(function (c) {
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'cu-sw';
+    b.style.background = c; b.dataset.key = 'accent'; b.dataset.v = c; b.title = c;
+    b.setAttribute('aria-label', 'accent ' + c);
+    b.addEventListener('click', function () {
+      store[scope] = store[scope] || {}; store[scope].accent = c; save(); applyAll(); syncUI();
+    });
+    ah.appendChild(b);
+  });
+
+  function syncUI() {
+    var st = settingsFor(scope);
+    panel.querySelectorAll('.cu-opt[data-key], .cu-sw[data-key]').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(st[b.dataset.key] === b.dataset.v));
+    });
+  }
+
+  panel.querySelector('#cuReset').addEventListener('click', function () {
+    store = {}; save();
+    ['all'].concat(SECTIONS.slice(1).map(function (s2) { return s2[0]; })).forEach(function (sc) {
+      var el = elFor(sc); if (!el) return;
+      ['--yd-border-sm','--yd-border','--yd-border-lg','--yd-shadow-sm','--yd-shadow','--yd-shadow-lg','--yd-shadow-ink-sm','--yd-shadow-ink','--yd-yellow','--yd-yellow-bright'].forEach(function (v) { el.style.removeProperty(v); });
+    });
+    syncUI();
+  });
+
+  panel.querySelector('#cuCopy').addEventListener('click', function () {
+    var lines = ['Brand guide customization settings:', ''];
+    var any = false;
+    SECTIONS.forEach(function (s2) {
+      var st = store[s2[0]];
+      if (st && Object.keys(st).length) { any = true; lines.push('- ' + s2[1] + ': ' + JSON.stringify(st)); }
+    });
+    if (!any) lines.push('(everything at defaults)');
+    lines.push('', 'Apply these as the new defaults where noted.');
+    if (window.ydExportPanel) window.ydExportPanel(lines.join('\n'));
+  });
+
+  document.getElementById('cuToggle').addEventListener('click', function () {
+    panel.classList.toggle('open');
+    syncUI();
+  });
+  applyAll();
 })();
 </script>
