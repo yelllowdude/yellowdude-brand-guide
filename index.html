@@ -1044,7 +1044,16 @@ h2.sec {
 .law h3 { font-family:var(--yd-font-display); font-weight:800; text-transform:uppercase; font-size:1.35rem; margin:0 0 6px; }
 .law p { margin:0 0 8px; max-width:62ch; }
 .law__test { display:inline-block; font-family:var(--yd-font-mono); font-size:.8rem; background:var(--yd-white); border:2px solid var(--yd-ink); padding:6px 10px; margin-top:2px; }
-.law__demo { display:flex; gap:16px; flex-wrap:wrap; align-items:center; margin-top:14px; }
+.lawpair { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:22px; margin-top:18px; max-width:720px; }
+.lawdemo { position:relative; border:3px solid var(--yd-ink); background:var(--yd-white); padding:26px 18px 14px; }
+.lawdemo__mark { position:absolute; top:-15px; left:14px; width:30px; height:30px; border-radius:50%; border:3px solid var(--yd-ink); display:flex; align-items:center; justify-content:center; font-weight:900; font-size:.9rem; background:var(--yd-teal); color:var(--yd-paper); }
+.lawdemo--bad .lawdemo__mark { background:var(--yd-signal); }
+.lawdemo__stage { display:flex; gap:14px; align-items:center; flex-wrap:wrap; min-height:64px; }
+.lawdemo__cap { font-family:var(--yd-font-mono); font-size:.72rem; margin-top:12px; color:var(--yd-grey); }
+.law-mini { width:170px; border:2px solid var(--yd-ink); background:var(--yd-paper); padding:10px; display:grid; gap:8px; align-content:start; }
+.law-mini .t { font-family:var(--yd-font-display); font-weight:800; text-transform:uppercase; font-size:.8rem; }
+.law-mini .r { border:2px solid var(--yd-ink); background:var(--yd-white); font-weight:600; font-size:.6rem; padding:5px 7px; }
+.law-mini .b { justify-self:stretch; text-align:center; border:2px solid var(--yd-ink); border-radius:999px; background:var(--yd-yellow); font-weight:700; text-transform:uppercase; font-size:.6rem; padding:5px 0; box-shadow:3px 3px 0 var(--yd-ink); }
 @media (max-width:640px) { .law { grid-template-columns:1fr; gap:6px 0; } }
 
 /* states */
@@ -1084,7 +1093,7 @@ h2.sec {
 
 /* swatches */
 .swatches { display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:20px; }
-.swatch { border:3px solid var(--yd-ink); box-shadow:5px 5px 0 var(--yd-ink); background:var(--yd-white); }
+.swatch { border:3px solid var(--yd-ink); background:var(--yd-white); }
 .swatch .chip { height:88px; border-bottom:3px solid var(--yd-ink); }
 .swatch .info { padding:12px 14px; }
 .swatch .name { font-weight:700; text-transform:uppercase; letter-spacing:.05em; font-size:.85rem; }
@@ -1092,7 +1101,7 @@ h2.sec {
 .swatch .use { font-size:.82rem; margin-top:6px; }
 
 /* type specimens */
-.specimen { border:3px solid var(--yd-ink); box-shadow:5px 5px 0 var(--yd-ink); background:var(--yd-white); padding:28px; margin-bottom:24px; }
+.specimen { border:3px solid var(--yd-ink); background:var(--yd-white); padding:28px; margin-bottom:24px; }
 .specimen .tag { display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
 .specimen .demo-display { font-family:var(--yd-font-display); font-weight:800; text-transform:uppercase; font-size:clamp(2.1rem,5.5vw,3.6rem); line-height:1; }
 .specimen .demo-condensed { font-family:var(--yd-font-condensed); text-transform:uppercase; font-size:clamp(2.6rem,7vw,4.2rem); line-height:.9; }
@@ -1113,7 +1122,7 @@ h2.sec {
 
 /* component gallery */
 .gallery { display:flex; flex-direction:column; gap:36px; }
-.comp { border:3px solid var(--yd-ink); box-shadow:5px 5px 0 var(--yd-ink); background:var(--yd-white); }
+.comp { border:3px solid var(--yd-ink); background:var(--yd-white); }
 .comp header { border-bottom:3px solid var(--yd-ink); padding:10px 20px; display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px; }
 .comp header .cname { font-family:var(--yd-font-display); font-weight:800; text-transform:uppercase; font-size:1.3rem; }
 .comp header .cuse { font-size:.85rem; }
@@ -1121,7 +1130,7 @@ h2.sec {
 
 /* media sheets */
 .sheets { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:28px; }
-.sheet { border:3px solid var(--yd-ink); box-shadow:8px 8px 0 var(--yd-ink); background:var(--yd-white); }
+.sheet { border:3px solid var(--yd-ink); background:var(--yd-white); }
 .sheet h3 { margin:0; padding:12px 20px; border-bottom:3px solid var(--yd-ink); font-family:var(--yd-font-display); font-weight:800; text-transform:uppercase; font-size:1.35rem; }
 .sheet.web h3 { background:var(--yd-yellow); }
 .sheet.app h3 { background:var(--yd-lilac); }
@@ -1141,7 +1150,7 @@ h2.sec {
 .mk-web .hero .b { display:inline-block; margin-top:8px; background:var(--yd-ink); color:var(--yd-yellow); border-radius:999px; font-size:.6rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; padding:4px 12px; }
 .mk-web .row { display:flex; gap:8px; padding:10px; }
 .mk-web .row div { flex:1; border:2px solid var(--yd-ink); box-shadow:3px 3px 0 var(--yd-ink); font-size:.6rem; font-weight:700; text-transform:uppercase; padding:8px 6px 14px; }
-.mk-phone { width:150px; border:3px solid var(--yd-ink); box-shadow:5px 5px 0 var(--yd-ink); background:var(--yd-paper); margin:0 auto; }
+.mk-phone { width:150px; border:3px solid var(--yd-ink); background:var(--yd-paper); margin:0 auto; }
 .mk-phone .top { border-bottom:3px solid var(--yd-ink); padding:6px 8px; }
 .mk-phone .top span { font-family:var(--yd-font-display); font-weight:800; text-transform:uppercase; font-size:.62rem; background:var(--yd-yellow); border:2px solid var(--yd-ink); padding:1px 5px; }
 .mk-phone .stats { display:flex; gap:6px; padding:8px; }
@@ -1188,12 +1197,6 @@ a:focus-visible, button:focus-visible { outline:3px solid var(--yd-signal); outl
 
 /* sin demos */
 .sin { display:inline-flex; align-items:center; justify-content:center; min-width:96px; padding:10px 18px; border:3px solid var(--yd-ink); font-weight:700; text-transform:uppercase; font-size:.85rem; letter-spacing:.04em; }
-.sin--mini { min-width:34px; width:34px; height:34px; padding:0; background:var(--yd-white); }
-
-/* masthead corner demo */
-.mh-corners { display:inline-flex; align-items:center; gap:10px; flex-wrap:wrap; }
-.mh-corners .yd-btn { cursor:default; box-shadow:2px 2px 0 var(--yd-ink); }
-.mh-corners__note { font-size:.8rem; font-weight:600; }
 
 /* pair demos, never-pair, ref thumbs */
 .pair__demo { display:flex; gap:14px; align-items:center; justify-content:center; flex-wrap:wrap; min-height:104px; padding:20px; border-bottom:3px solid var(--yd-ink); }
@@ -1207,7 +1210,7 @@ a.biglink img { display:block; width:100%; border:3px solid var(--yd-ink); margi
 
 /* color pairings */
 .pairgrid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:20px; }
-.pair { border:3px solid var(--yd-ink); background:var(--yd-white); box-shadow:5px 5px 0 var(--yd-ink); }
+.pair { border:3px solid var(--yd-ink); background:var(--yd-white); }
 .pair__chips { display:flex; height:64px; border-bottom:3px solid var(--yd-ink); }
 .pair__chips span { flex:1; }
 .pair__chips span + span { border-left:3px solid var(--yd-ink); }
@@ -1216,22 +1219,22 @@ a.biglink img { display:block; width:100%; border:3px solid var(--yd-ink); margi
 /* playground */
 .pg { display:grid; grid-template-columns:minmax(220px,300px) minmax(300px,1fr); gap:28px; align-items:start; }
 @media (max-width:760px) { .pg { grid-template-columns:1fr; } }
-.pg__controls { display:flex; flex-direction:column; gap:20px; border:3px solid var(--yd-ink); background:var(--yd-white); box-shadow:5px 5px 0 var(--yd-ink); padding:20px; }
+.pg__controls { display:flex; flex-direction:column; gap:20px; border:3px solid var(--yd-ink); background:var(--yd-white); padding:20px; }
 .pg__lbl { display:block; font-weight:700; text-transform:uppercase; font-size:.78rem; letter-spacing:.06em; margin-bottom:8px; }
 .pg__row { display:flex; flex-wrap:wrap; gap:8px; }
-.pg__sw { width:34px; height:34px; border:3px solid var(--yd-ink); border-radius:0; cursor:pointer; padding:0; }
+.pg__sw { width:34px; height:34px; border:3px solid var(--yd-ink); border-radius:50%; cursor:pointer; padding:0; }
 .pg__sw[aria-pressed='true'] { outline:3px solid var(--yd-signal); outline-offset:2px; }
-.pg__preset { font-family:var(--yd-font-body); font-weight:700; text-transform:uppercase; font-size:.68rem; letter-spacing:.04em; border:2px solid var(--yd-ink); background:var(--yd-paper); padding:6px 10px; cursor:pointer; box-shadow:2px 2px 0 var(--yd-ink); }
-.pg__preset:active { transform:translate(2px,2px); box-shadow:0 0 0 var(--yd-ink); }
+.pg__preset { font-family:var(--yd-font-body); font-weight:700; text-transform:uppercase; font-size:.68rem; letter-spacing:.04em; border:2px solid var(--yd-ink); border-radius:999px; background:var(--yd-paper); padding:6px 12px; cursor:pointer; box-shadow:3px 3px 0 var(--yd-ink); }
+.pg__preset:active { transform:translate(3px,3px); box-shadow:0 0 0 var(--yd-ink); }
 .pg__stage { display:flex; justify-content:center; padding:28px; border:3px dashed var(--yd-grey); }
-.pg__panel { width:min(400px,100%); border:3px solid var(--yd-ink); box-shadow:8px 8px 0 var(--yd-ink); padding:24px; }
+.pg__panel { width:min(400px,100%); border:3px solid var(--yd-ink); padding:24px; }
 .pg__paneltitle { font-family:var(--yd-font-display); font-weight:800; text-transform:uppercase; font-size:1.6rem; margin-bottom:16px; }
 .pg__panel .yd-chart { width:100%; color:var(--yd-ink); }
 
 /* heritage lineage */
 .heritage { display:flex; flex-wrap:wrap; gap:14px; align-items:stretch; margin-top:20px; }
 .heritage__node { border:3px solid var(--yd-ink); background:var(--yd-grey); color:var(--yd-paper); padding:14px 18px; flex:1; min-width:180px; }
-.heritage__node--now { background:var(--yd-yellow); color:var(--yd-ink); box-shadow:5px 5px 0 var(--yd-ink); }
+.heritage__node--now { background:var(--yd-yellow); color:var(--yd-ink); }
 .heritage__node--legacy { background:var(--yd-cream); color:var(--yd-ink); }
 .heritage__brand { font-size:1.6rem; line-height:1; text-transform:uppercase; }
 .heritage__meta { font-family:var(--yd-font-body); font-size:.78rem; margin-top:8px; line-height:1.4; }
@@ -1266,6 +1269,22 @@ a.biglink img { display:block; width:100%; border:3px solid var(--yd-ink); margi
       <h3>Legible in ink</h3>
       <p>Every screen must fully work with color unplugged: <strong>shape</strong> says what's tappable, <strong>shadow</strong> says what's pressable, <strong>weight</strong> says what matters. Color is personality — never instruction.</p>
       <span class="law__test">TEST: screenshot in grayscale. If anything stops making sense, the design is wrong — not the palette.</span>
+      <div class="lawpair">
+        <div class="lawdemo"><span class="lawdemo__mark">✓</span>
+          <div class="lawdemo__stage" style="filter:grayscale(1)">
+            <button type="button" class="yd-btn yd-btn--primary">Start</button>
+            <span class="sin" style="box-shadow:none; text-transform:none; font-weight:600">Rest-day tips</span>
+          </div>
+          <div class="lawdemo__cap">color unplugged — the shadowed pill still says "press me"</div>
+        </div>
+        <div class="lawdemo lawdemo--bad"><span class="lawdemo__mark">✕</span>
+          <div class="lawdemo__stage" style="filter:grayscale(1)">
+            <span class="sin" style="background:var(--yd-yellow); box-shadow:none">Start</span>
+            <span class="sin" style="box-shadow:none">Tips</span>
+          </div>
+          <div class="lawdemo__cap">color was the only signal — now which one is the button?</div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -1275,11 +1294,22 @@ a.biglink img { display:block; width:100%; border:3px solid var(--yd-ink); margi
       <h3>Tappable is pill</h3>
       <p>Every action control — button, chip, FAB, nav action — is a full pill. Compact actions (width ≈ height) are circles, never smaller than 44px in the app. The converse holds: <strong>nothing static wears a pill.</strong></p>
       <span class="law__test">TEST: cover the labels. You should still be able to point at everything tappable.</span>
-      <div class="law__demo">
-        <button type="button" class="yd-btn yd-btn--primary">Start workout</button>
-        <button type="button" class="yd-btn yd-btn--circle" aria-label="Add">+</button>
-        <span class="sin" style="box-shadow:none">Square button</span>
-        <span class="sin" style="border-radius:10px; box-shadow:none">In-between</span>
+      <div class="lawpair">
+        <div class="lawdemo"><span class="lawdemo__mark">✓</span>
+          <div class="lawdemo__stage">
+            <button type="button" class="yd-btn yd-btn--primary">Start workout</button>
+            <button type="button" class="yd-btn yd-btn--circle" aria-label="Add">+</button>
+          </div>
+          <div class="lawdemo__cap">action = pill · compact action = circle</div>
+        </div>
+        <div class="lawdemo lawdemo--bad"><span class="lawdemo__mark">✕</span>
+          <div class="lawdemo__stage">
+            <span class="sin" style="box-shadow:3px 3px 0 var(--yd-ink)">Start</span>
+            <span class="sin" style="border-radius:10px; box-shadow:3px 3px 0 var(--yd-ink)">Add</span>
+            <span class="sin" style="border-radius:999px; box-shadow:none; border-width:2px; text-transform:none; font-weight:600">3 sets left</span>
+          </div>
+          <div class="lawdemo__cap">square control · in-between corner · a pill you can't press</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1290,10 +1320,21 @@ a.biglink img { display:block; width:100%; border:3px solid var(--yd-ink); margi
       <h3>Pressable casts a shadow</h3>
       <p>A hard offset shadow means "pressing this does something". Pressing collapses the shadow — the element travels into its own footprint (120ms). <strong>Nothing static casts a shadow</strong> — static cards, stats, timers, and charts are flat.</p>
       <span class="law__test">TEST: point at any shadow and ask what happens on press. If the answer is "nothing", delete the shadow.</span>
-      <div class="law__demo">
-        <button type="button" class="yd-btn">Press me</button>
-        <span class="sin" style="box-shadow:none; text-transform:none; font-weight:600">Static card → flat ✓</span>
-        <span class="sin" style="box-shadow:5px 5px 0 var(--yd-ink); text-transform:none; font-weight:600">Static card + shadow ✕</span>
+      <div class="lawpair">
+        <div class="lawdemo"><span class="lawdemo__mark">✓</span>
+          <div class="lawdemo__stage">
+            <button type="button" class="yd-btn">Press me</button>
+            <span class="sin" style="box-shadow:none; text-transform:none; font-weight:600">Rest-day tips</span>
+          </div>
+          <div class="lawdemo__cap">shadow only where a press does something — static stays flat</div>
+        </div>
+        <div class="lawdemo lawdemo--bad"><span class="lawdemo__mark">✕</span>
+          <div class="lawdemo__stage">
+            <span class="sin" style="box-shadow:5px 5px 0 var(--yd-ink); text-transform:none; font-weight:600">Rest-day tips</span>
+            <span class="sin" style="box-shadow:3px 3px 0 var(--yd-ink); border-width:2px; font-size:.7rem; min-width:0; padding:4px 10px">Beginner</span>
+          </div>
+          <div class="lawdemo__cap">decorative shadows on things that don't respond</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1304,6 +1345,21 @@ a.biglink img { display:block; width:100%; border:3px solid var(--yd-ink); margi
       <h3>Square means content</h3>
       <p>Static surfaces — cards, images, sheets, badges, sections — have zero radius. The whole system owns exactly two radii: <strong>0 and full</strong>. The corner itself carries meaning: round = act, square = read.</p>
       <span class="law__test">TEST: grep the CSS for border-radius. Only 0, 999px and 50% may exist.</span>
+      <div class="lawpair">
+        <div class="lawdemo"><span class="lawdemo__mark">✓</span>
+          <div class="lawdemo__stage">
+            <div class="law-mini" style="width:150px"><span class="t">Push day</span><span class="r">Dips · 3 × 10</span></div>
+            <button type="button" class="yd-btn yd-btn--sm">Open</button>
+          </div>
+          <div class="lawdemo__cap">square holds content · round takes action</div>
+        </div>
+        <div class="lawdemo lawdemo--bad"><span class="lawdemo__mark">✕</span>
+          <div class="lawdemo__stage">
+            <div class="law-mini" style="width:150px; border-radius:14px"><span class="t">Push day</span><span class="r" style="border-radius:8px">Dips · 3 × 10</span></div>
+          </div>
+          <div class="lawdemo__cap">in-between corners say nothing — neither content nor control</div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -1313,6 +1369,21 @@ a.biglink img { display:block; width:100%; border:3px solid var(--yd-ink); margi
       <h3>Inputs are square wells</h3>
       <p>Fields receive, they don't act. Inputs, textareas, checks and radio marks stay square, flat, with focus as an ink outline. <strong>Pill + shadow = does something. Square well = takes something.</strong> Select is a well: it holds a value, so it sits square in forms.</p>
       <span class="law__test">TEST: does it fire an action or hold a value? Action → pill family. Value → well family.</span>
+      <div class="lawpair">
+        <div class="lawdemo"><span class="lawdemo__mark">✓</span>
+          <div class="lawdemo__stage">
+            <span class="sin" style="box-shadow:none; background:var(--yd-white); text-transform:none; font-weight:600; color:var(--yd-grey)">Your weight (kg)</span>
+            <button type="button" class="yd-btn yd-btn--primary yd-btn--sm">Save</button>
+          </div>
+          <div class="lawdemo__cap">flat square well takes · shadowed pill acts</div>
+        </div>
+        <div class="lawdemo lawdemo--bad"><span class="lawdemo__mark">✕</span>
+          <div class="lawdemo__stage">
+            <span class="sin" style="border-radius:999px; box-shadow:3px 3px 0 var(--yd-ink); background:var(--yd-white); text-transform:none; font-weight:600; color:var(--yd-grey)">Your weight (kg)</span>
+          </div>
+          <div class="lawdemo__cap">a field cosplaying as a button</div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -1322,6 +1393,20 @@ a.biglink img { display:block; width:100%; border:3px solid var(--yd-ink); margi
       <h3>Ration the ink</h3>
       <p>Borders mark objects, not layout. One box per idea — no box inside a box inside a box. Whitespace and type scale do the separating; a border is a declaration that something is a thing.</p>
       <span class="law__test">TEST: count nested frames. More than two deep → remove boxes until it isn't.</span>
+      <div class="lawpair">
+        <div class="lawdemo"><span class="lawdemo__mark">✓</span>
+          <div class="lawdemo__stage">
+            <div class="law-mini" style="width:190px"><span class="t">This week</span><span style="font-size:.65rem; font-weight:600">Mon · Push day done</span><span style="font-size:.65rem; font-weight:600">Wed · Pull day done</span><span class="b">Start next</span></div>
+          </div>
+          <div class="lawdemo__cap">one box per idea — type and air do the layout inside</div>
+        </div>
+        <div class="lawdemo lawdemo--bad"><span class="lawdemo__mark">✕</span>
+          <div class="lawdemo__stage">
+            <div style="border:3px solid var(--yd-ink); padding:8px; background:var(--yd-white)"><div style="border:2px solid var(--yd-ink); padding:8px"><div style="border:2px solid var(--yd-ink); padding:6px; font-weight:600; font-size:.7rem">Mon · Push day</div></div></div>
+          </div>
+          <div class="lawdemo__cap">box in box in box — layout done with borders</div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -1331,6 +1416,22 @@ a.biglink img { display:block; width:100%; border:3px solid var(--yd-ink); margi
       <h3>Flat or nothing</h3>
       <p>Solid fills only. No gradients, no blur, no soft shadows, no transparency. One written exception: the <strong>scrim</strong> behind sheets and modals is 50% ink (see Layering) — nothing else may be translucent.</p>
       <span class="law__test">TEST: grep for gradient, blur, and rgba with alpha &lt; 1. One hit allowed: the scrim token.</span>
+      <div class="lawpair">
+        <div class="lawdemo"><span class="lawdemo__mark">✓</span>
+          <div class="lawdemo__stage">
+            <span class="sin" style="background:var(--yd-yellow); box-shadow:none">Start</span>
+          </div>
+          <div class="lawdemo__cap">one committed flat fill</div>
+        </div>
+        <div class="lawdemo lawdemo--bad"><span class="lawdemo__mark">✕</span>
+          <div class="lawdemo__stage">
+            <span class="sin" style="background:linear-gradient(135deg,var(--yd-yellow),var(--yd-purple)); box-shadow:none">Start</span>
+            <span class="sin" style="background:var(--yd-yellow); box-shadow:5px 5px 12px rgba(17,17,17,.6)">Start</span>
+            <span class="sin" style="background:var(--yd-yellow); opacity:.45; box-shadow:none">Start</span>
+          </div>
+          <div class="lawdemo__cap">gradient · blurred shadow · translucency — all banned (glows too)</div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -1340,6 +1441,20 @@ a.biglink img { display:block; width:100%; border:3px solid var(--yd-ink); margi
       <h3>Fewer, bigger, bolder</h3>
       <p>When a screen feels busy, remove elements — never shrink them. Everything that stays is at full conviction: full border weight, full type weight, full size.</p>
       <span class="law__test">TEST: reaching for a thinner border, lighter grey, or smaller size to make something fit? The fix is deletion.</span>
+      <div class="lawpair">
+        <div class="lawdemo"><span class="lawdemo__mark">✓</span>
+          <div class="lawdemo__stage">
+            <div class="law-mini"><span class="t">Today</span><span class="r">Push-ups · 3 × 12</span><span class="r">Dips · 3 × 10</span><span class="b">Start workout</span></div>
+          </div>
+          <div class="lawdemo__cap">three things, all at full conviction</div>
+        </div>
+        <div class="lawdemo lawdemo--bad"><span class="lawdemo__mark">✕</span>
+          <div class="lawdemo__stage">
+            <div class="law-mini" style="gap:4px"><span class="t" style="font-size:.6rem">Today</span><span class="r" style="font-size:.48rem; padding:2px 4px; border-width:1px">Push-ups · 3 × 12</span><span class="r" style="font-size:.48rem; padding:2px 4px; border-width:1px">Dips · 3 × 10</span><span class="r" style="font-size:.48rem; padding:2px 4px; border-width:1px">Pike push-ups · 3 × 8</span><span class="r" style="font-size:.48rem; padding:2px 4px; border-width:1px">Rest timer · 90s</span><span class="r" style="font-size:.48rem; padding:2px 4px; border-width:1px">Streak · 23 days</span><div style="display:flex; gap:4px"><span class="b" style="flex:1; font-size:.45rem; box-shadow:2px 2px 0 var(--yd-ink)">Start</span><span class="b" style="flex:1; font-size:.45rem; background:var(--yd-white); box-shadow:2px 2px 0 var(--yd-ink)">History</span></div></div>
+          </div>
+          <div class="lawdemo__cap">everything shrunk to fit — the fix was deletion, not 1px borders</div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -1349,9 +1464,20 @@ a.biglink img { display:block; width:100%; border:3px solid var(--yd-ink); margi
       <h3>Ink draws, it never floods</h3>
       <p>A standalone button is never filled black — the field swallows its own border and shadow, which are the point. Emphasis is <strong>yellow fill with ink text</strong>. Ink fill survives only as a state mark inside a bordered container: the toggle's checked state, the segmented thumb, a selected option.</p>
       <span class="law__test">TEST: any black-filled element with its own shadow is a violation. Refill it yellow or make it flat.</span>
-      <div class="law__demo">
-        <button type="button" class="yd-btn yd-btn--primary">Start workout</button>
-        <span class="sin" style="background:var(--yd-ink); color:var(--yd-paper); box-shadow:3px 3px 0 var(--yd-ink); border-radius:999px">Start workout</span>
+      <div class="lawpair">
+        <div class="lawdemo"><span class="lawdemo__mark">✓</span>
+          <div class="lawdemo__stage">
+            <button type="button" class="yd-btn yd-btn--primary">Start workout</button>
+            <span style="display:inline-flex; border:3px solid var(--yd-ink); border-radius:999px; background:var(--yd-white); padding:3px; gap:3px"><span style="border-radius:999px; background:var(--yd-ink); color:var(--yd-paper); font-weight:700; text-transform:uppercase; font-size:.7rem; padding:5px 12px">Push</span><span style="border-radius:999px; font-weight:700; text-transform:uppercase; font-size:.7rem; padding:5px 12px">Pull</span></span>
+          </div>
+          <div class="lawdemo__cap">emphasis = yellow fill · ink only as a state mark in a track</div>
+        </div>
+        <div class="lawdemo lawdemo--bad"><span class="lawdemo__mark">✕</span>
+          <div class="lawdemo__stage">
+            <span class="sin" style="background:var(--yd-ink); color:var(--yd-paper); box-shadow:3px 3px 0 var(--yd-ink); border-radius:999px">Start workout</span>
+          </div>
+          <div class="lawdemo__cap">black field — its border and shadow drown in it</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1503,7 +1629,7 @@ a.biglink img { display:block; width:100%; border:3px solid var(--yd-ink); margi
 <section id="tokens">
   <span class="plate">04 · Neo-brutal tokens</span>
   <h2 class="sec">Border, shadow, space</h2>
-  <p class="lede">The whole style is three moves: a thick ink border, a hard offset shadow, and flat fill. Press feedback = the element moves into its shadow (120ms, ease-out). Nothing fades, nothing glows.</p>
+  <p class="lede">The physical spec behind the laws: three border weights, three shadow offsets, one spacing scale. Which element gets which is decided by the laws (00–08) — this section only sets the sizes.</p>
   <div class="tokrow">
     <div class="tok"><div class="demo"><div class="box" style="border-width:2px"></div></div><div class="lbl">Border SM</div><div class="val">2px · badges, small controls</div></div>
     <div class="tok"><div class="demo"><div class="box"></div></div><div class="lbl">Border MD</div><div class="val">3px · default everything</div></div>
@@ -1512,23 +1638,6 @@ a.biglink img { display:block; width:100%; border:3px solid var(--yd-ink); margi
     <div class="tok"><div class="demo"><div class="box" style="box-shadow:5px 5px 0 var(--yd-ink)"></div></div><div class="lbl">Shadow MD</div><div class="val">5px 5px 0 · tappable cards</div></div>
     <div class="tok"><div class="demo"><div class="box" style="box-shadow:8px 8px 0 var(--yd-ink)"></div></div><div class="lbl">Shadow LG</div><div class="val">8px 8px 0 · large pressables</div></div>
   </div>
-  <h3 style="font-family:var(--yd-font-display); font-weight:800; text-transform:uppercase; font-size:1.4rem; margin:40px 0 16px">Show the sins — never do these</h3>
-  <div class="nogrid" style="max-width:none; margin-bottom:36px">
-    <div class="no"><div class="no__demo"><span class="sin" style="background:linear-gradient(135deg,var(--yd-yellow),var(--yd-purple))">Start</span><span class="no__x">✕</span></div><div class="no__cap">No gradients — every fill is flat.</div></div>
-    <div class="no"><div class="no__demo"><span class="sin" style="background:var(--yd-yellow); box-shadow:5px 5px 12px rgba(17,17,17,.6)">Start</span><span class="no__x">✕</span></div><div class="no__cap">No blurred shadows — shadows are hard offsets.</div></div>
-    <div class="no"><div class="no__demo"><span class="sin" style="background:var(--yd-yellow); box-shadow:0 0 14px 4px rgba(255,193,0,.9)">Start</span><span class="no__x">✕</span></div><div class="no__cap">No glows — focus and emphasis use ink outlines.</div></div>
-    <div class="no"><div class="no__demo"><span class="sin" style="background:var(--yd-yellow); opacity:.45">Start</span><span class="no__x">✕</span></div><div class="no__cap">No opacity fades — states change instantly or physically move.</div></div>
-    <div class="no"><div class="no__demo"><span class="sin" style="background:var(--yd-yellow); border-radius:10px">Start</span><span class="no__x">✕</span></div><div class="no__cap">No in-between corners — square or full pill, nothing else.</div></div>
-    <div class="no"><div class="no__demo" style="gap:6px"><span class="sin sin--mini"></span><span class="sin sin--mini"></span><span class="sin sin--mini"></span><span class="sin sin--mini"></span><span class="no__x">✕</span></div><div class="no__cap">Don't box everything — too many bordered boxes overwhelms. Borders are essential, but use them sparingly.</div></div>
-  </div>
-  <ul class="rule-list" style="margin-top:28px">
-    <li><strong>Radius:</strong> square (0) or full pill (999px). Never anything in between (Law 03). Round = tappable, square = content (Law 01).</li>
-    <li><strong>Shadows never blur</strong> and are always down-right ink. A shadow means "pressing this does something" (Law 02) — buttons, pagination circles, tappable cards. Everything static is flat, and form fields stay flat with an ink focus outline (Law 04).</li>
-    <li><strong>No black button fills</strong> (Law 08) — a black field swallows its own border and shadow. Emphasis fills yellow with ink text; ink fill only as a state mark inside a bordered container.</li>
-    <li><strong>Motion:</strong> press = translate by the shadow offset, shadow collapses to 0, 120ms ease-out. Everything else snaps. See the motion vocabulary below.</li>
-    <li><strong>Borders are essential — and rationed</strong> (Law 05). Borders mark objects, not layout; one box per idea, no nested frames. If everything has a border, nothing does.</li>
-    <li><strong>Density:</strong> fewer, bigger, bolder (Law 07). A busy screen loses elements, never shrinks them.</li>
-  </ul>
   <h3 style="font-family:var(--yd-font-display); font-weight:800; text-transform:uppercase; font-size:1.4rem; margin:48px 0 8px">Spacing rhythm</h3>
   <p class="lede" style="margin-bottom:0">The 4px scale (4 / 8 / 12 / 16 / 24 / 32 / 48 / 64) plus three rules that end spacing debates. Margins below are painted yellow to show the rule, not as a design element.</p>
   <div class="rhythm">
@@ -1915,12 +2024,12 @@ a.biglink img { display:block; width:100%; border:3px solid var(--yd-ink); margi
   position:fixed; right:20px; bottom:20px; z-index:9999;
   display:flex; gap:10px; align-items:center; flex-wrap:wrap;
   background:var(--yd-ink); border:3px solid var(--yd-ink);
-  box-shadow:5px 5px 0 rgba(17,17,17,.35); padding:10px 12px;
+  padding:10px 12px;
 }
 .an-bar button {
   font-family:var(--yd-font-body); font-weight:700; text-transform:uppercase;
-  letter-spacing:.05em; font-size:.78rem; cursor:pointer; border-radius:0;
-  border:2px solid var(--yd-ink); padding:7px 12px; background:var(--yd-paper); color:var(--yd-ink);
+  letter-spacing:.05em; font-size:.78rem; cursor:pointer; border-radius:999px;
+  border:2px solid var(--yd-ink); padding:7px 14px; background:var(--yd-paper); color:var(--yd-ink);
 }
 .an-bar button.primary { background:var(--yd-yellow); }
 .an-bar button.on { background:var(--yd-signal); color:var(--yd-paper); }
@@ -1930,13 +2039,13 @@ body.annotating, body.annotating * { cursor:crosshair !important; }
 .an-pin {
   position:absolute; z-index:9998; width:28px; height:28px;
   background:var(--yd-signal); color:var(--yd-paper);
-  border:3px solid var(--yd-ink); box-shadow:3px 3px 0 var(--yd-ink);
+  border:3px solid var(--yd-ink); border-radius:50%; box-shadow:3px 3px 0 var(--yd-ink);
   font-family:var(--yd-font-mono); font-weight:700; font-size:.85rem;
   display:flex; align-items:center; justify-content:center; cursor:pointer;
 }
 .an-pop {
   position:absolute; z-index:10000; width:min(340px,86vw);
-  background:var(--yd-paper); border:3px solid var(--yd-ink); box-shadow:5px 5px 0 var(--yd-ink); padding:14px;
+  background:var(--yd-paper); border:3px solid var(--yd-ink); padding:14px;
 }
 .an-pop .an-target { font-family:var(--yd-font-mono); font-size:.72rem; margin-bottom:8px; word-break:break-word; background:var(--yd-cream); border:2px solid var(--yd-ink); padding:4px 8px; }
 .an-pop textarea {
@@ -1944,20 +2053,20 @@ body.annotating, body.annotating * { cursor:crosshair !important; }
   font-family:var(--yd-font-body); font-size:.95rem; border:3px solid var(--yd-ink); border-radius:0; padding:8px; background:var(--yd-white); color:var(--yd-ink); outline:none;
 }
 .an-pop .row { display:flex; gap:8px; margin-top:10px; }
-.an-pop .row button { flex:none; font-family:var(--yd-font-body); font-weight:700; text-transform:uppercase; font-size:.75rem; letter-spacing:.05em; border:2px solid var(--yd-ink); border-radius:0; padding:7px 12px; cursor:pointer; }
+.an-pop .row button { flex:none; font-family:var(--yd-font-body); font-weight:700; text-transform:uppercase; font-size:.75rem; letter-spacing:.05em; border:2px solid var(--yd-ink); border-radius:999px; padding:7px 14px; cursor:pointer; }
 .an-save { background:var(--yd-yellow); }
 .an-del { background:var(--yd-signal); color:var(--yd-paper); }
 .an-cancel { background:var(--yd-paper); }
 .an-toast {
   position:fixed; left:50%; bottom:84px; transform:translateX(-50%); z-index:10001;
-  background:var(--yd-teal); color:var(--yd-paper); border:3px solid var(--yd-ink); box-shadow:4px 4px 0 var(--yd-ink);
+  background:var(--yd-teal); color:var(--yd-paper); border:3px solid var(--yd-ink);
   font-weight:700; text-transform:uppercase; letter-spacing:.05em; font-size:.85rem; padding:10px 18px; display:none;
 }
 .an-hint { color:var(--yd-paper); font-size:.75rem; max-width:200px; }
 @media print { .an-bar, .an-pin, .an-pop, .an-toast, .cu-panel { display:none !important; } }
 .cu-panel {
   position:fixed; left:20px; bottom:20px; z-index:9999; width:min(320px,88vw);
-  background:var(--yd-paper); border:3px solid var(--yd-ink); box-shadow:5px 5px 0 var(--yd-ink);
+  background:var(--yd-paper); border:3px solid var(--yd-ink);
   padding:16px; display:none; max-height:70vh; overflow-y:auto;
 }
 .cu-panel.open { display:block; }
@@ -1965,9 +2074,9 @@ body.annotating, body.annotating * { cursor:crosshair !important; }
 .cu-group { margin-bottom:14px; }
 .cu-group > span { display:block; font-weight:700; text-transform:uppercase; font-size:.72rem; letter-spacing:.06em; margin-bottom:6px; }
 .cu-row { display:flex; flex-wrap:wrap; gap:6px; }
-.cu-opt { font-family:var(--yd-font-body); font-weight:700; text-transform:uppercase; font-size:.68rem; letter-spacing:.03em; border:2px solid var(--yd-ink); background:var(--yd-white); padding:5px 10px; cursor:pointer; }
+.cu-opt { font-family:var(--yd-font-body); font-weight:700; text-transform:uppercase; font-size:.68rem; letter-spacing:.03em; border:2px solid var(--yd-ink); border-radius:999px; background:var(--yd-white); padding:5px 12px; cursor:pointer; }
 .cu-opt[aria-pressed='true'] { background:var(--yd-yellow); }
-.cu-sw { width:28px; height:28px; border:2px solid var(--yd-ink); cursor:pointer; padding:0; }
+.cu-sw { width:28px; height:28px; border:2px solid var(--yd-ink); border-radius:50%; cursor:pointer; padding:0; }
 .cu-sw[aria-pressed='true'] { outline:3px solid var(--yd-signal); outline-offset:2px; }
 .cu-actions { display:flex; gap:8px; margin-top:6px; }
 select.cu-scope { font-family:var(--yd-font-body); font-weight:600; border:2px solid var(--yd-ink); background:var(--yd-white); padding:6px 8px; width:100%; }
